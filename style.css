@@ -327,3 +327,117 @@ width:110px;
 height:110px;
 object-fit:contain;
 }
+/* ===== HEADER ===== */
+
+.header{
+    width:100%;
+    background:#0b0f19;
+    padding:22px 0;
+}
+
+.logo-box{
+    width:90%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-box h2{
+    color:#FFD700;
+    font-size:28px;
+    font-weight:700;
+    margin:0;
+}
+
+.logo-box p{
+    color:#bdbdbd;
+    font-size:17px;
+    margin-top:6px;
+}
+
+
+/* ===== BANNER ===== */
+
+.slider{
+    width:90%;
+    margin:20px auto 12px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.slider img{
+    width:100%;
+    height:165px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+
+/* ===== SEARCH ===== */
+
+.search-box{
+    width:90%;
+    margin:12px auto;
+}
+
+.search-box input{
+    width:100%;
+    height:58px;
+    border:1.5px solid #d9d9d9;
+    border-radius:20px;
+    background:#fff;
+    color:#555;
+    font-size:18px;
+    padding:0 22px;
+    outline:none;
+    box-sizing:border-box;
+}
+
+.search-box input::placeholder{
+    color:#7a7a7a;
+}
+
+
+/* ===== TELEGRAM BUTTON ===== */
+
+.telegram-box{
+    width:90%;
+    height:58px;
+    margin:15px auto 20px;
+    background:#2ea8df;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+
+/* ===== TITLE ===== */
+
+.title{
+    text-align:center;
+    color:#FFD700;
+    font-size:24px;
+    font-weight:700;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+#gameCount{
+    text-align:center;
+    color:#777;
+    font-size:17px;
+    margin-bottom:20px;
+}
