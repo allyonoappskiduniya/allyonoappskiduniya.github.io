@@ -476,3 +476,59 @@ body{
     margin:0;
     background:#0b0f19;
 }
+/* FINAL HEADER DESIGN */
+
+.header{
+    background:#0b0f19;
+    padding:12px 15px;
+    margin:0;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.logo{
+    width:85px;
+    height:85px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.logo-box h2{
+    font-size:26px;
+    margin:0;
+    color:#ffd700;
+    font-weight:800;
+}
+
+.logo-box p{
+    margin-top:6px;
+    font-size:16px;
+    color:#aaa;
+}
+
+
+/* MOBILE HEADER */
+@media(max-width:600px){
+
+.logo{
+    width:80px;
+    height:80px;
+}
+
+.logo-box{
+    gap:15px;
+}
+
+.logo-box h2{
+    font-size:24px;
+}
+
+.logo-box p{
+    font-size:15px;
+}
+
+}
