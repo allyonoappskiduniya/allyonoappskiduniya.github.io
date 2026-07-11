@@ -431,4 +431,47 @@ header{
     font-size:16px;
 }
 
+/* HEADER BLACK FINAL FIX */
+
+.header{
+    background:#0b0f19;
+    padding:20px 15px;
+    margin:0;
+}
+
+.logo-box{
+    background:#0b0f19;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:25px;
+}
+
+
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+
+.logo-box h2{
+    margin:0;
+    font-size:28px;
+    color:#ffd700;
+}
+
+
+.logo-box p{
+    margin-top:8px;
+    color:#aaa;
+    font-size:17px;
+}
+
+
+/* remove extra top space */
+body{
+    margin:0;
+    background:#0b0f19;
 }
