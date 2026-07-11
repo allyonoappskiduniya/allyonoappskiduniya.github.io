@@ -221,3 +221,27 @@ img{
     height:100px;
 }
 }
+/* LAST BIG IMAGE FIX */
+footer img,
+.footer img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    display:block;
+    margin:10px auto;
+}
+
+/* Extra large images control */
+img{
+    max-width:100%;
+}
+
+/* Footer size fix */
+footer{
+    padding:20px 10px;
+    overflow:hidden;
+}
+
+footer img{
+    max-height:120px;
+}
