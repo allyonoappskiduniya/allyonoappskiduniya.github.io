@@ -532,3 +532,24 @@ body{
 }
 
 }
+/* TITLE COLOR FIX */
+.title{
+    color:#ffd700 !important;
+}
+
+/* GAME HEADING FIX */
+.games + h2,
+h2.title{
+    color:#ffd700 !important;
+}
+
+/* LOGO LITTLE MOVE */
+.logo-box{
+    padding-left:10px;
+}
+
+/* GAME IMAGE BIG */
+.game-card img{
+    width:140px;
+    height:140px;
+}
