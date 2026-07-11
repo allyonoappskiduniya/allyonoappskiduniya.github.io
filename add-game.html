@@ -68,7 +68,17 @@ min="0"
 max="5"
 step="0.1">
 
-<button>Add Game</button>
+<<button id="addGameBtn">➕ Add Game</button>
+
+<button
+id="bulkImportBtn"
+style="
+margin-top:10px;
+background:#16a34a;
+color:white;
+">
+🚀 Import Default Games
+</button>
 
 </div>
 
@@ -88,7 +98,7 @@ appId: "1:474330790853:web:da1f01d00a7ffedbc4e9ac"
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.querySelector("button").onclick = async function(){
+document.getElementById("addGameBtn").onclick = async function(){
 
 const name = document.getElementById("gameName").value;
 const image = document.getElementById("gameImage").value;
