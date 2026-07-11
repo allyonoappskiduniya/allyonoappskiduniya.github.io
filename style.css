@@ -161,16 +161,17 @@ body{
     text-align:center;
     padding:8px;
     box-shadow:0 4px 12px rgba(0,0,0,.12);
+    height:270px;
+ 
 }
 
 
 .game-card img{
-    width:100%;
-    max-width:145px;
-    height:145px;
+    width:150px;
+    height:150px;
     display:block;
-    margin:6px auto;
-    object-fit:contain;
+    margin:0 auto;
+    object-fit:cover;
 }
 
 
