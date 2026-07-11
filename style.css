@@ -313,3 +313,30 @@ footer p{
 }
 
 }
+
+.games{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+
+.game-card{
+min-width:0;
+}
+
+
+.game-card img{
+width:110px;
+height:110px;
+}
+
+
+@media(max-width:600px){
+
+.game-card img{
+width:95px;
+height:95px;
+}
+
+}
