@@ -609,3 +609,68 @@ h2.title{
 }
 
 }
+/* HEADER FINAL */
+
+.header{
+    background:#0b0f19;
+    padding:20px 15px;
+}
+
+.logo-box{
+    background:#0b0f19;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:15px;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.logo-box h2{
+    font-size:28px;
+    color:#ffd700;
+    margin:0;
+}
+
+.logo-box p{
+    color:#aaa;
+    font-size:18px;
+    margin-top:8px;
+}
+
+
+/* BLUE BONUS BOX */
+
+.bonus-box{
+    width:90%;
+    margin:20px auto;
+    padding:15px;
+    background:#1976d2;
+    color:white;
+    text-align:center;
+    border-radius:12px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+
+/* SEARCH FIX */
+
+.search-box{
+    width:90%;
+    margin:20px auto;
+}
+
+.search-box input{
+    width:100%;
+    height:60px;
+    border-radius:15px;
+    border:2px solid #ddd;
+    padding-left:20px;
+    font-size:18px;
+}
