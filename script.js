@@ -1,136 +1,115 @@
-// YonoAppsKiDuniya ALL FIX SCRIPT
+// ================= SLIDER =================
 
-const searchInput=document.getElementById("searchInput");
-const gamesContainer=document.getElementById("gamesContainer");
-const visitorBox=document.getElementById("visitors");
-const winnerPopup=document.getElementById("winner-popup");
+let slides = document.querySelectorAll(".slide");
+let slideIndex = 0;
 
-const slides=document.querySelectorAll(".slide");
-let currentSlide=0;
 
-function showSlide(i){
-slides.forEach(s=>s.classList.remove("active"));
-if(slides[i]) slides[i].classList.add("active");
-}
+function showSlide(){
 
-if(slides.length){
-showSlide(0);
-setInterval(()=>{
-currentSlide=(currentSlide+1)%slides.length;
-showSlide(currentSlide);
-},3000);
-}
+    slides.forEach(function(slide){
+        slide.classList.remove("active");
+    });
 
-if(visitorBox){
-let visitors=1256;
-visitorBox.innerText=visitors;
-setInterval(()=>{
-visitors+=Math.floor(Math.random()*5)+1;
-visitorBox.innerText=visitors;
-},5000);
-}
 
-async function loadGames(){
+    if(slides.length > 0){
 
-if(!gamesContainer)return;
+        slides[slideIndex].classList.add("active");
 
-try{
+        slideIndex++;
 
-const snapshot=await window.getDocs(
-window.collection(window.db,"games")
-);
+        if(slideIndex >= slides.length){
+            slideIndex = 0;
+        }
 
-document.querySelectorAll(".firebase-game")
-.forEach(c=>c.remove());
-
-snapshot.forEach(doc=>{
-
-const game=doc.data();
-
-let image=game.image || "images/logo.png";
-
-if(!image.includes("images/")){
-image="images/"+image;
-}
-
-const card=document.createElement("div");
-
-card.className="game-card firebase-game";
-
-card.innerHTML=`
-<img src="${image}" onerror="this.src='images/logo.png'">
-<h3>${game.name || "Game"}</h3>
-<div class="rating">${game.rating || "⭐⭐⭐⭐⭐"}</div>
-<a href="${game.link || '#'}" target="_blank" class="install-btn">
-📲 INSTALL APP
-</a>
-`;
-
-gamesContainer.appendChild(card);
-
-});
-
-updateGameCount();
-
-}catch(e){
-console.log("Firebase Error:",e);
-}
+    }
 
 }
 
-function updateGameCount(){
 
-const box=document.getElementById("gameCount");
+if(slides.length > 0){
 
-if(box){
-box.innerText=document.querySelectorAll(".game-card").length+
-" Trusted Games Available";
-}
+    setInterval(showSlide,3000);
 
 }
+
+
+
+// ================= SEARCH =================
+
+let searchInput = document.getElementById("searchInput");
+
 
 if(searchInput){
 
 searchInput.addEventListener("keyup",function(){
 
-let value=this.value.toLowerCase();
+    let value = this.value.toLowerCase();
 
-document.querySelectorAll(".game-card").forEach(card=>{
 
-let name=card.querySelector("h3")?.innerText.toLowerCase() || "";
+    let games = document.querySelectorAll(".game-card");
 
-card.style.display=name.includes(value)?"block":"none";
 
-});
+    games.forEach(function(game){
+
+        let name = game.querySelector("h3").innerText.toLowerCase();
+
+
+        if(name.includes(value)){
+
+            game.style.display="block";
+
+        }else{
+
+            game.style.display="none";
+
+        }
+
+    });
+
 
 });
 
 }
+// ================= WINNER POPUP =================
 
-const winners=[
-"Rahul won ₹520",
-"Aman won ₹860",
-"Sunny won ₹2000"
+let winnerPopup = document.getElementById("winner-popup");
+
+
+let winners = [
+    "Rahul won ₹500",
+    "Amit won ₹1000",
+    "Vijay won ₹300",
+    "Sahil won ₹750",
+    "Rohan won ₹200"
 ];
+
 
 function showWinner(){
 
-if(!winnerPopup)return;
+    if(winnerPopup){
 
-winnerPopup.innerHTML="🎉 "+winners[Math.floor(Math.random()*winners.length)];
-winnerPopup.style.display="block";
+        let randomWinner = winners[
+            Math.floor(Math.random() * winners.length)
+        ];
 
-setTimeout(()=>{
-winnerPopup.style.display="none";
-},3000);
+
+        winnerPopup.innerHTML =
+        "🏆 " + randomWinner;
+
+
+        winnerPopup.style.display="block";
+
+
+        setTimeout(function(){
+
+            winnerPopup.style.display="none";
+
+        },3000);
+
+    }
 
 }
 
+
+
 setInterval(showWinner,8000);
-
-window.addEventListener("DOMContentLoaded",()=>{
-loadGames();
-updateGameCount();
-});
-
-console.log("✅ Script Loaded");
