@@ -1,115 +1,283 @@
-// ================= SLIDER =================
+// ===================================================
+// YonoAppsKiDuniya
+// script.js
+// PART 1
+// Firebase Dynamic Games
+// ===================================================
 
-let slides = document.querySelectorAll(".slide");
-let slideIndex = 0;
+const searchInput = document.getElementById("searchInput");
+const gamesContainer = document.getElementById("gamesContainer");
+const gameCount = document.getElementById("gameCount");
+const winnerPopup = document.getElementById("winner-popup");
 
+// ------------------------
+// Load Firebase Games
+// ------------------------
 
-function showSlide(){
+async function loadGames() {
 
-    slides.forEach(function(slide){
-        slide.classList.remove("active");
-    });
+    if (!gamesContainer) return;
 
+    try {
 
-    if(slides.length > 0){
+        const snapshot = await window.getDocs(
+            window.collection(window.db, "games")
+        );
 
-        slides[slideIndex].classList.add("active");
+        gamesContainer.innerHTML = "";
 
-        slideIndex++;
+        snapshot.forEach((doc) => {
 
-        if(slideIndex >= slides.length){
-            slideIndex = 0;
-        }
+            const game = doc.data();
+
+            const card = document.createElement("div");
+
+            card.className = "game-card";
+
+            card.innerHTML = `
+
+<img src="${game.image}"
+alt="${game.name}"
+onerror="this.src='images/logo.png'">
+
+<h3>${game.name}</h3>
+
+<div class="rating">
+${game.rating || "⭐⭐⭐⭐⭐"}
+</div>
+
+<a href="${game.link}"
+target="_blank"
+class="install-btn">
+
+📲 INSTALL APP
+
+</a>
+
+`;
+
+            gamesContainer.appendChild(card);
+
+        });
+
+        updateGameCount();
+
+    } catch (error) {
+
+        console.error("Firebase Error :", error);
 
     }
 
 }
+// ===================================================
+// PART 2
+// Search + Game Count + Auto Refresh
+// ===================================================
 
+// ------------------------
+// Update Game Count
+// ------------------------
 
-if(slides.length > 0){
+function updateGameCount() {
 
-    setInterval(showSlide,3000);
+    if (!gameCount) return;
+
+    const total =
+    document.querySelectorAll(".game-card").length;
+
+    gameCount.innerText =
+    total + " Trusted Games Available";
 
 }
 
+// ------------------------
+// Search Games
+// ------------------------
 
+function enableSearch() {
 
-// ================= SEARCH =================
+    if (!searchInput) return;
 
-let searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
 
+        const value =
+        this.value.toLowerCase();
 
-if(searchInput){
+        document
+        .querySelectorAll(".game-card")
+        .forEach(card => {
 
-searchInput.addEventListener("keyup",function(){
+            const name =
+            card.querySelector("h3")
+            .innerText
+            .toLowerCase();
 
-    let value = this.value.toLowerCase();
+            if (name.includes(value)) {
 
+                card.style.display = "block";
 
-    let games = document.querySelectorAll(".game-card");
+            } else {
 
+                card.style.display = "none";
 
-    games.forEach(function(game){
+            }
 
-        let name = game.querySelector("h3").innerText.toLowerCase();
-
-
-        if(name.includes(value)){
-
-            game.style.display="block";
-
-        }else{
-
-            game.style.display="none";
-
-        }
+        });
 
     });
 
+}
+
+// ------------------------
+// Refresh Firebase Games
+// ------------------------
+
+function refreshGames() {
+
+    loadGames();
+
+}
+
+// First Load
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        refreshGames();
+
+    }, 500);
 
 });
 
-}
-// ================= WINNER POPUP =================
+// Auto Refresh Every 15 Seconds
 
-let winnerPopup = document.getElementById("winner-popup");
+setInterval(() => {
 
+    refreshGames();
 
-let winners = [
-    "Rahul won ₹500",
-    "Amit won ₹1000",
-    "Vijay won ₹300",
-    "Sahil won ₹750",
-    "Rohan won ₹200"
-];
+}, 15000);
+// ===================================================
+// PART 3
+// Slider + Winner Popup + Final Init
+// ===================================================
 
+// ------------------------
+// Banner Slider
+// ------------------------
 
-function showWinner(){
+const slides = document.querySelectorAll(".slide");
 
-    if(winnerPopup){
+let currentSlide = 0;
 
-        let randomWinner = winners[
-            Math.floor(Math.random() * winners.length)
-        ];
+function showSlide(index){
 
+    slides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
 
-        winnerPopup.innerHTML =
-        "🏆 " + randomWinner;
-
-
-        winnerPopup.style.display="block";
-
-
-        setTimeout(function(){
-
-            winnerPopup.style.display="none";
-
-        },3000);
-
+    if(slides.length>0){
+        slides[index].classList.add("active");
     }
 
 }
 
+function nextSlide(){
 
+    if(slides.length===0) return;
+
+    currentSlide++;
+
+    if(currentSlide>=slides.length){
+        currentSlide=0;
+    }
+
+    showSlide(currentSlide);
+
+}
+
+if(slides.length>0){
+
+    showSlide(0);
+
+    setInterval(nextSlide,3000);
+
+}
+
+
+
+// ------------------------
+// Winner Popup
+// ------------------------
+
+const winners=[
+
+"Rahul won ₹520",
+"Aman won ₹860",
+"Rohit won ₹1200",
+"Vikas won ₹750",
+"Sunny won ₹2000",
+"Riya won ₹980",
+"Ankit won ₹640",
+"Pooja won ₹1450"
+
+];
+
+function showWinner(){
+
+    if(!winnerPopup) return;
+
+    const randomWinner=
+    winners[Math.floor(Math.random()*winners.length)];
+
+    winnerPopup.innerHTML="🎉 "+randomWinner;
+
+    winnerPopup.style.display="block";
+
+    setTimeout(()=>{
+
+        winnerPopup.style.display="none";
+
+    },3000);
+
+}
 
 setInterval(showWinner,8000);
+
+
+
+// ------------------------
+// Install Button Animation
+// ------------------------
+
+document.addEventListener("click",function(e){
+
+    if(!e.target.classList.contains("install-btn")) return;
+
+    const btn=e.target;
+
+    const oldText=btn.innerHTML;
+
+    btn.innerHTML="⏳ Opening...";
+
+    setTimeout(()=>{
+
+        btn.innerHTML=oldText;
+
+    },1500);
+
+});
+
+
+
+// ------------------------
+// Final Start
+// ------------------------
+
+window.addEventListener("DOMContentLoaded",()=>{
+
+    loadGames();
+
+    enableSearch();
+
+});
