@@ -4,29 +4,32 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>YonoAppsKiDuniya</title>
 
 <link rel="stylesheet" href="style.css">
 
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 
-<!-- HEADER -->
+<header class="header">
 
-<header class="top-header">
+<div class="header-box">
 
-<div class="brand-box">
+<div class="logo-box">
 
-<img src="images/logo.png" class="logo" alt="Logo">
+<img src="images/logo.png" class="logo" alt="YonoAppsKiDuniya Logo">
 
-
-<div class="brand-text">
+<div class="title-box">
 
 <h1>YonoAppsKiDuniya</h1>
 
@@ -36,261 +39,89 @@
 
 </div>
 
+</div>
+
 </header>
+<!-- ================= SEARCH ================= -->
 
+<div class="search-wrapper">
 
+    <div class="search-box">
 
-<!-- SEARCH -->
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search Your Favourite Game..."
+        >
 
-<div class="search-box">
-
-<input 
-type="text"
-id="searchInput"
-placeholder="🔍 Search Your Favourite Game..."
->
+    </div>
 
 </div>
 
 
 
-<!-- BANNER SLIDER -->
+<!-- ================= BANNER SLIDER ================= -->
 
 <div class="slider">
 
+    <div class="slide active">
+        <img src="images/banner1.png" alt="Banner 1">
+    </div>
 
-<div class="slide active">
+    <div class="slide">
+        <img src="images/banner2.png" alt="Banner 2">
+    </div>
 
-<img src="images/banner1.png" alt="Banner 1">
-
-</div>
-
-
-<div class="slide">
-
-<img src="images/banner2.png" alt="Banner 2">
-
-</div>
-
-
-<div class="slide">
-
-<img src="images/banner3.png" alt="Banner 3">
-
-</div>
-
+    <div class="slide">
+        <img src="images/banner3.png" alt="Banner 3">
+    </div>
 
 </div>
 
 
 
-<!-- TELEGRAM BUTTON -->
+<!-- ================= TELEGRAM ================= -->
 
-<div class="telegram-area">
+<div class="telegram-wrapper">
 
-<a href="https://t.me/lordearningtip" target="_blank" class="telegram-btn">
-📢 JOIN TELEGRAM CHANNEL
-</a>
+    <a
+        href="https://t.me/lordearningtip"
+        target="_blank"
+        class="telegram-btn">
+
+        📢 JOIN TELEGRAM CHANNEL
+
+    </a>
 
 </div>
-<!-- TOP GAMES -->
+<!-- ================= TOP GAMES ================= -->
 
 <section class="games-section">
 
-<h2 class="section-title">
-🔥 TOP EARNING GAMES
-</h2>
+    <div class="section-header">
 
-<p class="game-count" id="gameCount">
-32 Trusted Games Available
-</p>
+        <h2>
+            🔥 TOP EARNING GAMES
+        </h2>
 
-    
-<div class="games" id="gamesContainer">
-<!-- GAME 1 : Bingo101 -->
-<div class="game-card">
-    <img src="images/bingo101.png" alt="Bingo101">
-    <h3>Bingo101</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://bingo-101.info/?code=6YFHXY2G8Y1&t=1783887649" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
+        <p id="gameCount">
+            Loading Games...
+        </p>
 
-<!-- GAME 2 : Spin101 -->
-<div class="game-card">
-    <img src="images/Spin101.png" alt="Spin101">
-    <h3>Spin101</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://spin101.click/?code=351NDUFCAX2&t=1783887731" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 3 : IND Slots -->
-<div class="game-card">
-    <img src="images/indslots.png" alt="IND Slots">
-    <h3>IND Slots</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://www.indslotsbonus.com/?code=EYM4AS1VV24&t=1783887959" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 4 : YONO Games -->
-<div class="game-card">
-    <img src="images/Yonogames.png" alt="YONO Games">
-    <h3>YONO Games</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://yonogamesi.com/?code=XF3NXDK5TPR&t=1783888046" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 5 : YONO Slots -->
-<div class="game-card">
-    <img src="images/YonoSlots.png" alt="YONO Slots">
-    <h3>YONO Slots</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://www.yonoslotsg.com/?code=PJBWTB9KC6M&t=1783888020" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 6 : Spin777 -->
-<div class="game-card">
-    <img src="images/Spin777.png" alt="Spin777">
-    <h3>Spin777</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://spin777-s.com/?code=7V9Y39GRWBL&t=1783887823" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 7 : 101Z -->
-<div class="game-card">
-    <img src="images/101zGame.png" alt="101Z Game">
-    <h3>101Z GAME</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://101z2.com/?code=398RB19V9BE&t=1783887761" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 8 : DIWA GAME -->
-<div class="game-card">
-    <img src="images/DiwaGame.png" alt="DIWA Game">
-    <h3>DIWA GAME</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://diwagameshare.vip?pid=478121036&channel=2010003&pkg=com.diwagamedlx.app" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-<!-- GAME 9 : GOGO RUMMY -->
-<div class="game-card">
-    <img src="images/Gogorummy.png" alt="GOGO RUMMY">
-    <h3>GOGO RUMMY</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://www.gogorummyfun.com/?code=8FWG1HVHA2X&t=1783887040" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 10 : JOY RUMMY -->
-<div class="game-card">
-    <img src="images/Joyrummy.png" alt="JOY RUMMY">
-    <h3>JOY RUMMY</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://www.joyrummy8.com/?code=J5KPG61GMXM&t=1783886445" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 11 : RUMMY77 -->
-<div class="game-card">
-    <img src="images/Rummy77.png" alt="RUMMY77">
-    <h3>RUMMY77</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://rummy77m.net/?code=F3V6C4WX3D2&t=1783887098" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 12 : FN7 GAME -->
-<div class="game-card">
-    <img src="images/fn7.png" alt="FN7 GAME">
-    <h3>FN7 GAME</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://invite.fn7e.com/?code=41TVJ6Z" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
-
-<!-- GAME 13 : YES SPIN -->
-<div class="game-card">
-    <img src="images/yesspin.png" alt="YES SPIN">
-    <h3>YES SPIN</h3>
-    <div class="rating">★★★★★</div>
-    <a href="https://www.yesspinfactor.com/?code=47TBEDSDGPU&t=1783887147" target="_blank" class="install-btn">
-        📲 INSTALL APP
-    </a>
-</div>
+    </div>
 
 
-</div>
+    <!-- ================= FIREBASE GAMES ================= -->
+
+    <div
+        id="gamesContainer"
+        class="games-list">
+
+        <!--
+        Firebase se saare games yahin automatically load honge.
+        Yahan manually koi game-card paste nahi karna.
+        -->
+
+    </div>
 
 </section>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<img src="images/logo.png" class="footer-logo" alt="Logo">
-
-<p>India's Trusted Gaming Store</p>
-
-<p>
-© 2026 YonoAppsKiDuniya
-</p>
-
-</footer>
-
-
-
-<!-- BOTTOM NAV -->
-
-<nav class="bottom-nav">
-
-<a href="#">
-🏠
-<br>
-Home
-</a>
-
-
-<a href="#">
-🎮
-<br>
-Games
-</a>
-
-
-<a href="https://t.me/lordearningtip" target="_blank">
-📢
-<br>
-Telegram
-</a>
-
-
-</nav>
-
-
-
-<script type="module" src="firebase.js"></script>
-<script type="module" src="firebase.js"></script>
-<script src="script.js"></script>
-
-</body>
-</html>
